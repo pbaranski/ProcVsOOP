@@ -1,12 +1,12 @@
-from oop.console_query import ConsoleQuery
 from oop.disc_connector import DiskConnector
+from oop.windows_mock.console_query_windows_mock import ConsoleQueryWindowsMock
 
 __author__ = 'szemek'
 
 
-class DiskApp(object):
+class DiskAppWindowsMock(object):
     def __init__(self):
-        query = ConsoleQuery(False)
+        query = ConsoleQueryWindowsMock(False)
         self.__disk_connector = DiskConnector(query)
 
     def disks_count(self):
@@ -20,9 +20,9 @@ class DiskApp(object):
             print self.__disk_connector.disk_details(i)
 
     def information_level_verbose(self):
-        query = ConsoleQuery(True)
+        query = ConsoleQueryWindowsMock(True)
         self.__disk_connector = DiskConnector(query)
 
     def information_level_info(self):
-        query = ConsoleQuery(False)
+        query = ConsoleQueryWindowsMock(False)
         self.__disk_connector = DiskConnector(query)
